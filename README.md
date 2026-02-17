@@ -17,15 +17,13 @@ A ready-to-use Python development environment for GitHub Codespaces with OpenCod
 
 ---
 
-## Quick Start
+## Getting Started
 
-1. Click **"Open in Codespaces"** badge above
-2. Wait for the environment to build (~2 minutes)
-3. Open a terminal and run:
-   ```bash
-   opencode
-   ```
-4. Start coding with AI assistance
+1. Click **"Use this template"** → **"Create a new repository"**
+2. Name your project and choose visibility (public/private)
+3. Click **"Create repository"**
+4. Click **"Open in Codespaces"** badge
+5. Run `opencode` and start building!
 
 ---
 
