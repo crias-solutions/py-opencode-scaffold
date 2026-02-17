@@ -81,6 +81,8 @@ opencode
 py-opencode-scaffold/
 ├── .devcontainer/
 │   └── devcontainer.json    # Codespaces configuration
+├── .gitattributes
+├── .gitignore
 ├── AGENTS.md                 # AI context template
 ├── LICENSE                   # MPL 2.0
 ├── README.md                 # This file
