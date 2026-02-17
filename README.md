@@ -1,19 +1,17 @@
 # py-opencode-scaffold
 
-Python + OpenCode AI scaffold for GitHub Codespaces.
-
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-Codespaces-2088FF?style=for-the-badge&logo=github)](https://codespaces.new/crias-solutions/py-opencode-scaffold)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-F77F00?style=for-the-badge&logo=mozilla)](https://opensource.org/licenses/MPL-2.0)
 
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-20-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![OpenCode](https://img.shields.io/badge/OpenCode-1.2.x-8B5CF6?style=flat-square&logo=openai&logoColor=white)](https://opencode.ai/)
+[![OpenCode](https://img.shields.io/badge/OpenCode-CLI-8B5CF6?style=flat-square&logo=openai&logoColor=white)](https://opencode.ai/)
 
 ---
 
 ## What is this?
 
-A ready-to-use Python development environment for GitHub Codespaces with OpenCode AI assistant pre-configured. Click the badge above and start coding with AI assistance in seconds.
+A ready-to-use Python development environment template for GitHub Codespaces with OpenCode AI assistant pre-configured. Create your own copy, launch a Codespace, and start coding with AI assistance in minutes.
 
 ---
 
@@ -22,12 +20,17 @@ A ready-to-use Python development environment for GitHub Codespaces with OpenCod
 1. Click **"Use this template"** → **"Create a new repository"**
 2. Name your project and choose visibility (public/private)
 3. Click **"Create repository"**
-4. Click **"Open in Codespaces"** badge
-5. Run `opencode` and start building!
+4. In your new repo, click the **"Open in Codespaces"** badge above
+5. Wait for the environment to build (~2 minutes)
+6. Open terminal and run:
+   ```bash
+   opencode
+   ```
+7. Start coding with AI assistance!
 
 ---
 
-## Configuration (optional)
+## Configuration (Optional)
 
 ### API Keys Setup
 
@@ -66,7 +69,6 @@ opencode
 | Command | Description |
 |---------|-------------|
 | `opencode` | Launch AI assistant |
-| `Ctrl+Esc` | Quick launch (VS Code) |
 | `/help` | Show available commands |
 | `/clear` | Clear conversation |
 | `/quit` | Exit OpenCode |
@@ -79,12 +81,12 @@ opencode
 py-opencode-scaffold/
 ├── .devcontainer/
 │   └── devcontainer.json    # Codespaces configuration
-├── .gitattributes
-├── .gitignore
-├── AGENTS.md                 # AI context template
-├── LICENSE                   # MPL 2.0
-├── README.md                 # This file
-└── requirements.txt          # Python dependencies
+├── .gitattributes           # Git file handling rules
+├── .gitignore               # Ignored files and folders
+├── AGENTS.md                # AI context template
+├── LICENSE                  # MPL 2.0
+├── README.md                # This file
+└── requirements.txt         # Python dependencies
 ```
 
 ---
@@ -95,7 +97,22 @@ This scaffold includes an `AGENTS.md` file—a template for providing context to
 
 See [AGENTS.md](AGENTS.md) for the template.
 
-Just fill in the bracketed placeholders (like [Your Project Name]) and customize the sections to match your specific project.
+---
+
+## Saving Your Work
+
+Before deleting your Codespace, always push your changes:
+
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin main
+```
+
+Your code is safely stored on GitHub. You can:
+- Clone it locally: `git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git`
+- Download as ZIP from GitHub
+- Create a new Codespace anytime
 
 ---
 
