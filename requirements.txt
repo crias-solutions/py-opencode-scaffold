@@ -1,0 +1,24 @@
+# Core scientific computing
+numpy
+pandas
+scipy
+matplotlib
+
+# Testing
+pytest
+pytest-cov
+
+# Code quality
+ruff
+black
+
+# Utilities
+requests
+python-dotenv
+
+# Jupyter support
+ipykernel
+notebook
+
+# Type checking
+mypy
