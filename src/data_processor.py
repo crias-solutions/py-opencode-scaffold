@@ -114,30 +114,43 @@ def visualize(df: pd.DataFrame, output_path: Path, show: bool = True) -> None:
 
 
 def main() -> dict[str, Any]:
-    """Main function to process voltage data."""
+    """Main function to process voltage data for all Raw_Data_*.xlsx files."""
     data_dir = Path("data")
-    input_file = data_dir / "Raw_Data_01.xlsx"
-    output_csv = data_dir / "cleaned_data.csv"
-    output_plot = data_dir / "voltage_plot.png"
+    input_files = sorted(data_dir.glob("Raw_Data_*.xlsx"))
 
-    print(f"Loading data from: {input_file}")
-    df = load_excel_data(input_file)
-    print(f"Loaded {len(df)} rows")
+    if not input_files:
+        msg = "No Raw_Data_*.xlsx files found in data directory"
+        raise FileNotFoundError(msg)
 
-    print("Cleaning data...")
-    df = clean_data(df)
+    results = {}
+    for input_file in input_files:
+        print(f"\n{'=' * 50}")
+        print(f"Processing: {input_file.name}")
+        print("=" * 50)
 
-    print(f"Saving cleaned data to: {output_csv}")
-    df.to_csv(output_csv, index=False)
+        output_csv = data_dir / f"cleaned_{input_file.stem}.csv"
+        output_plot = data_dir / f"plot_{input_file.stem}.png"
 
-    print("Creating visualization...")
-    visualize(df, output_plot, show=False)
+        print(f"Loading data from: {input_file}")
+        df = load_excel_data(input_file)
+        print(f"Loaded {len(df)} rows")
 
-    return {
-        "rows_processed": len(df),
-        "output_csv": str(output_csv),
-        "output_plot": str(output_plot),
-    }
+        print("Cleaning data...")
+        df = clean_data(df)
+
+        print(f"Saving cleaned data to: {output_csv}")
+        df.to_csv(output_csv, index=False)
+
+        print("Creating visualization...")
+        visualize(df, output_plot, show=False)
+
+        results[input_file.name] = {
+            "rows_processed": len(df),
+            "output_csv": str(output_csv),
+            "output_plot": str(output_plot),
+        }
+
+    return results
 
 
 if __name__ == "__main__":
