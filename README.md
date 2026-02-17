@@ -95,6 +95,8 @@ This scaffold includes an `AGENTS.md` file—a template for providing context to
 
 See [AGENTS.md](AGENTS.md) for the template.
 
+Just fill in the bracketed placeholders (like [Your Project Name]) and customize the sections to match your specific project.
+
 ---
 
 ## License
