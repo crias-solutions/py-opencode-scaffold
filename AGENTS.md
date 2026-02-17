@@ -6,9 +6,9 @@
 
 ## Project Overview
 
-**Name:** Voltage Data Processor
+**Name:** [Your Project Name]
 
-**Description:** Process and visualize voltage data from Excel files with cleaning and plotting capabilities.
+**Description:** [One-sentence description of what this project does]
 
 **Type:** Python Application
 
