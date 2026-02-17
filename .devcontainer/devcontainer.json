@@ -29,7 +29,7 @@
       ]
     }
   },
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && npm install -g @opencode/cli@latest",
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && npm install -g opencode-ai",,
   "remoteUser": "vscode",
   "remoteEnv": {
     "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
