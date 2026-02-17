@@ -21,7 +21,7 @@ A ready-to-use Python development environment for GitHub Codespaces with OpenCod
 
 1. Click **"Open in Codespaces"** badge above
 2. Wait for the environment to build (~2 minutes)
-3. Open terminal and run:
+3. Open a terminal and run:
    ```bash
    opencode
    ```
@@ -29,7 +29,7 @@ A ready-to-use Python development environment for GitHub Codespaces with OpenCod
 
 ---
 
-## Configuration
+## Configuration (optional)
 
 ### API Keys Setup
 
