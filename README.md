@@ -9,28 +9,80 @@
 
 ---
 
-## What is this?
-
 A ready-to-use Python development environment template for GitHub Codespaces with OpenCode AI assistant pre-configured. Create your own copy, launch a Codespace, and start coding with AI assistance in minutes.
 
 ---
 
-## Getting Started
+## Why
+
+### Problem
+
+Developers spend significant time setting up local development environments. Installing tools, configuring extensions, and ensuring consistency across machines slows down productivity.
+
+### Motivation
+
+This template eliminates manual setup. It provides a pre-configured Codespace with Python, Node.js, and OpenCode ready to use immediately after launch.
+
+### Intended Impact
+
+Reduce environment setup from hours to minutes. Enable developers to focus on writing code rather than configuring tools.
+
+---
+
+## How
+
+### Architecture
+
+The project uses GitHub Codespaces with a DevContainer configuration. This provides a consistent, containerized development environment that runs in the cloud.
+
+### Technical Approach
+
+1. **DevContainer** – Defines the development environment with all required tools and extensions
+2. **Template Repository** – Users create their own copy from this template
+3. **Environment Variables** – API keys are configured via GitHub Codespaces secrets
+
+### Key Components
+
+- Python 3.12 for runtime
+- Node.js 20 for CLI tools
+- OpenCode CLI for AI assistance
+- VS Code extensions pre-configured
+
+---
+
+## What
+
+### Core Features
+
+1. **One-click Codespace setup** – Launch a fully configured environment from the template
+2. **Pre-configured AI assistance** – OpenCode ready to use with `/help` command
+3. **Customizable context** – AGENTS.md template for project-specific instructions
+
+### What's Included
+
+- DevContainer configuration
+- AGENTS.md template for OpenCode context
+- Python dependencies (requirements.txt)
+- Git configuration (.gitattributes, .gitignore)
+
+---
+
+## Installation
 
 1. Click **"Use this template"** → **"Create a new repository"**
 2. Name your project and choose visibility (public/private)
 3. Click **"Create repository"**
-4. In your new repo, click the **"Open in Codespaces"** badge above
+4. In your new repo, click the **"Open in Codespaces"** badge
 5. Wait for the environment to build (~2 minutes)
 6. Open terminal and run:
    ```bash
    opencode
    ```
-7. Start coding with AI assistance!
+7. Start coding with AI assistance
 
 ---
 
-## Configuration (Optional)
+## Configuration
 
 ### API Keys Setup
 
@@ -56,6 +108,23 @@ OpenCode requires an API key from a supported provider.
 
 ---
 
+## Models
+
+OpenCode supports multiple AI providers. Choose based on your needs:
+
+| Model | Provider | Best For |
+|-------|----------|----------|
+| Claude 3.5 Sonnet | Anthropic | General coding, debugging, explanations |
+| Claude 3 Opus | Anthropic | Complex reasoning, large codebases |
+| GPT-4o | OpenAI | Fast responses, broad knowledge |
+| GPT-4 Turbo | OpenAI | Cost-effective coding tasks |
+
+### Selecting a Model
+
+OpenCode automatically uses the model associated with your configured API key. Set either `ANTHROPIC_API_KEY` or `OPENAI_API_KEY` in your Codespaces secrets.
+
+---
+
 ## Usage
 
 ### Launch OpenCode
@@ -73,6 +142,12 @@ opencode
 | `/clear` | Clear conversation |
 | `/quit` | Exit OpenCode |
 
+### Typical Workflow
+
+1. Run `opencode` in terminal
+2. Describe what you want to build
+3. AI assists with coding, debugging, and explaining
+
 ---
 
 ## Project Structure
@@ -86,36 +161,50 @@ py-opencode-scaffold/
 ├── AGENTS.md                # AI context template
 ├── LICENSE                  # MPL 2.0
 ├── README.md                # This file
-└── requirements.txt         # Python dependencies
+├── requirements.txt         # Python dependencies
+└── WRITING.md               # Documentation standards
 ```
 
 ---
 
-## AGENTS.md Template
+## AI Context Files
 
-This scaffold includes an `AGENTS.md` file—a template for providing context to OpenCode about your project. Edit it to describe your application, coding standards, and project-specific instructions.
+This template includes two files that help OpenCode understand your project:
 
-See [AGENTS.md](AGENTS.md) for the template.
+### AGENTS.md
 
----
+**Purpose**: Provides context about your project to OpenCode.
 
-## Saving Your Work
+**When to use**:
+- When you create a new project from this template
+- When your project evolves (new tech stack, conventions, dependencies)
+- When you need OpenCode to follow specific coding standards
 
-Before deleting your Codespace, always push your changes:
+**How to use**: Edit [AGENTS.md](AGENTS.md) to describe:
+- Project name and description
+- Tech stack and dependencies
+- Coding standards and conventions
+- Common tasks and commands
 
-```bash
-git add .
-git commit -m "Your commit message"
-git push origin main
-```
+### WRITING.md
 
-Your code is safely stored on GitHub. You can:
-- Clone it locally: `git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git`
-- Download as ZIP from GitHub
-- Create a new Codespace anytime
+**Purpose**: Defines documentation standards for this project.
+
+**When to use**:
+- When creating or updating README.md files
+- When writing any project documentation
+- When ensuring consistency across documentation
+
+**How to use**: OpenCode automatically reads WRITING.md when modifying documentation. It enforces:
+- Golden Circle structure (Why → How → What)
+- Rule of Three for content organization
+- KISS principle for clarity
 
 ---
 
 ## License
 
-This project is licensed under the [Mozilla Public License 2.0](LICENSE).
+This project is licensed under the Mozilla Public License 2.0.  
+SPDX-License-Identifier: MPL-2.0
+
+See the [LICENSE](LICENSE) file for full details.
