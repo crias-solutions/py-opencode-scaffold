@@ -100,14 +100,33 @@ mypy src/
 
 Pre-installed context engineering system for OpenCode. Provides structured workflows for complex development tasks.
 
-### When to Use GSD vs Direct Prompts
+### When to Use Each Approach
 
-| Use GSD When | Use Direct Prompts When |
-|--------------|------------------------|
-| Planning multi-step features | Answering quick questions |
-| Breaking down large tasks | Fixing small bugs |
-| Verifying completed work | Explaining existing code |
-| Starting a new project | Simple refactoring |
+| Use spec-kit When | Use GSD When | Use Direct Prompts When |
+|-------------------|--------------|------------------------|
+| Defining new features or requirements | Planning complex multi-step tasks | Answering quick questions |
+| Creating technical implementation plans | Breaking down large tasks into subtasks | Fixing small bugs |
+| Generating task lists from specifications | Executing plans with parallel waves | Explaining existing code |
+| Ensuring spec-to-code traceability | Verifying completed work | Simple refactoring |
+
+### spec-kit Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/speckit.constitution` | Create project governing principles |
+| `/speckit.specify` | Define requirements and user stories |
+| `/speckit.plan` | Create technical implementation plans |
+| `/speckit.tasks` | Generate actionable task lists |
+| `/speckit.implement` | Execute all tasks to build the feature |
+| `/speckit.clarify` | Clarify underspecified areas |
+| `/speckit.analyze` | Cross-artifact consistency analysis |
+| `/speckit.checklist` | Generate custom quality checklists |
+
+### spec-kit Usage Notes
+
+- spec-kit provides structured specification-first development
+- Use `specify init . --ai opencode` to bootstrap in existing projects
+- spec-kit is developed by [GitHub](https://github.com/github/spec-kit) under the MIT License
 
 ### Available Commands
 
