@@ -96,6 +96,40 @@ mypy src/
 
 ---
 
+## GSD (Get Shit Done)
+
+Pre-installed context engineering system for OpenCode. Provides structured workflows for complex development tasks.
+
+### When to Use GSD vs Direct Prompts
+
+| Use GSD When | Use Direct Prompts When |
+|--------------|------------------------|
+| Planning multi-step features | Answering quick questions |
+| Breaking down large tasks | Fixing small bugs |
+| Verifying completed work | Explaining existing code |
+| Starting a new project | Simple refactoring |
+
+### Available Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/gsd-help` | Show all available GSD commands |
+| `/gsd:new-project` | Initialize project (research → requirements → roadmap) |
+| `/gsd:discuss-phase N` | Capture implementation decisions |
+| `/gsd:plan-phase N` | Research, plan, and verify a task |
+| `/gsd:execute-phase N` | Execute plans in parallel waves |
+| `/gsd:verify-work N` | User acceptance testing |
+| `/gsd:quick` | Fast ad-hoc tasks |
+| `/gsd:next` | Auto-detect and run next step |
+
+### Usage Notes
+
+- GSD uses specialized subagents (planner, executor, verifier) for complex workflows
+- Use `inherit` model profile — follows OpenCode's configured model selection
+- GSD is developed by [TACHES](https://github.com/gsd-build/get-shit-done) under the MIT License
+
+---
+
 ## Coding Standards
 
 ### Style

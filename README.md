@@ -46,6 +46,7 @@ The project uses GitHub Codespaces with a DevContainer configuration. This provi
 - Python 3.12 for runtime
 - Node.js 20 for CLI tools
 - OpenCode CLI for AI assistance
+- GSD (Get Shit Done) for structured AI workflows
 - VS Code extensions pre-configured
 
 ---
@@ -56,7 +57,8 @@ The project uses GitHub Codespaces with a DevContainer configuration. This provi
 
 1. **One-click Codespace setup** – Launch a fully configured environment from the template
 2. **Pre-configured AI assistance** – OpenCode ready to use with `/help` command
-3. **Customizable context** – AGENTS.md template for project-specific instructions
+3. **Structured AI workflows** – GSD provides plan/execute/verify commands out of the box
+4. **Customizable context** – AGENTS.md template for project-specific instructions
 
 ### What's Included
 
@@ -208,3 +210,11 @@ This project is licensed under the Mozilla Public License 2.0.
 SPDX-License-Identifier: MPL-2.0
 
 See the [LICENSE](LICENSE) file for full details.
+
+---
+
+## Acknowledgments
+
+This template includes [GSD (Get Shit Done)](https://github.com/gsd-build/get-shit-done) as a pre-installed tool for OpenCode. GSD is developed by [TACHES](https://github.com/gsd-build/get-shit-done) and licensed under the MIT License.
+
+Copyright (c) 2025 Lex Christopherson. See the [GSD LICENSE](https://github.com/gsd-build/get-shit-done/blob/main/LICENSE) for full details.
