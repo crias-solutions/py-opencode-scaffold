@@ -2,146 +2,77 @@
 
 > Context for OpenCode and AI coding assistants.
 
----
+## Critical Facts (Would Likely Miss Without Help)
 
-## Project Overview
+- **Template repository**: When creating a new project from this template, you MUST update the project name and description in this file.
+- **No application code**: The `src/` directory is intentionally empty - this is where you add your code.
+- **Environment variables**: OpenCode requires API keys set via GitHub Codespaces secrets (`ANTHROPIC_API_KEY` or `OPENAI_API_KEY`), not in the repository.
+- **Test naming**: Tests must follow `test_<module>.py` naming convention for pytest discovery.
 
-**Name:** py-opencode-scaffold — Python development environment template for GitHub Codespaces with OpenCode AI pre-configured
+## Essential Commands
 
-**Type:** Python Application / Template Repository
-
----
-
-## Tech Stack
-
-Python 3.12, pip, pytest/pytest-cov, Ruff (lint/format), mypy (type check)
-Key libs: numpy, pandas, scipy, matplotlib, requests
-
----
-
-## Project Structure
-
-```
-py-opencode-scaffold/
-├── src/                  # Source code
-├── tests/                # Test files
-├── .devcontainer/        # Codespaces config
-├── AGENTS.md             # This file
-├── README.md
-├── requirements.txt
-└── WRITING.md            # Documentation standards
-```
-
----
-
-## Commands
-
-### Dependencies
-
+### Dependency Management
 ```bash
-pip install -r requirements.txt       # Install
-pip install <package> && pip freeze > requirements.txt  # Add dependency
+# After editing requirements.txt
+pip install <package> && pip freeze > requirements.txt
 ```
 
-### Tests
-
+### Testing
 ```bash
-pytest                                 # All tests
-pytest tests/test_file.py::test_name   # Single test
-pytest --cov=src --cov-report=term-missing  # With coverage
+# All tests
+pytest
+
+# Single test function
+pytest tests/test_file.py::test_name
+
+# With coverage
+pytest --cov=src --cov-report=term-missing
 ```
 
 ### Code Quality
-
 ```bash
-ruff check .    # Lint
-ruff format .   # Format
-mypy src/       # Type check
+# Lint
+ruff check .
+
+# Format
+ruff format .
+
+# Type check
+mypy src/
 ```
 
-### AI Workflows
+### AI Workflows (pre-installed)
+```bash
+# Specification-first development (spec-kit)
+/speckit.specify    # Start feature specification
+/speckit.plan       # Create implementation plan
+/speckit.tasks      # Break plan into tasks
+/speckit.implement  # Implement tasks
 
-**spec-kit** (spec-first): `/speckit.specify`, `/speckit.plan`, `/speckit.tasks`, `/speckit.implement`, `/speckit.clarify`, `/speckit.analyze`
-**GSD** (multi-step tasks): `/gsd:new-project`, `/gsd:plan-phase N`, `/gsd:execute-phase N`, `/gsd:verify-work N`, `/gsd:quick`
-
-Use spec-kit for defining features/plans, GSD for complex multi-step execution, direct prompts for quick questions.
-
----
-
-## Coding Standards
-
-### Style
-
-- PEP 8, max 88 chars/line
-- Type hints on all functions
-- Google-style docstrings for public functions/classes
-- Prefer f-strings over .format() or % formatting
-
-### Naming
-
-| Type | Convention | Example |
-|------|------------|---------|
-| Variables/Functions | snake_case | `get_user()` |
-| Classes | PascalCase | `UserManager` |
-| Constants | UPPER_SNAKE | `MAX_RETRIES` |
-| Private | `_prefix` | `_internal_method()` |
-| Type aliases | PascalCase | `UserId = str` |
-
-### Imports
-
-Three groups separated by blank lines: stdlib → third-party → local.
-Use absolute imports, one per line.
-
-```python
-import os
-import requests
-from src.utils import helper
+# Multi-step execution (GSD)
+/gsd:new-project    # Start GSD workflow
+/gsd:execute-phase N # Execute phase N
 ```
 
-### Types
+## Project Structure
+```
+py-opencode-scaffold/
+├── src/                  # ← Add your application code here
+├── tests/                # ← Test files (must be test_<module>.py)
+├── .devcontainer/        # ← Codespaces configuration (generally don't modify)
+├── AGENTS.md             # ← THIS FILE (update for your project context)
+├── README.md
+├── requirements.txt      # ← Python dependencies (keep updated)
+└── WRITING.md            # ← Documentation standards
+```
 
-- Use `typing` module for complex types (`List`, `Dict`, `Optional`)
-- Prefer `collections.abc` (`Sequence`, `Mapping`) when read-only
-- Use `TypeVar` for generics
-- Never use bare `except`
+## Agent-Specific Guidelines
 
-### Error Handling
-
-- Raise specific exceptions (`ValueError`, `TypeError`, `RuntimeError`)
-- Custom exceptions inherit from `Exception`
-- Use context managers (`with`) for resource cleanup
-- Log before raising; never swallow exceptions silently
-- Use `raise ... from ...` for exception chaining
-
----
-
-## Testing
-
-- Files: `test_<module>.py`
-- Functions: `test_<function>_<scenario>()` (e.g., `test_login_fails_with_invalid_password`)
-- Use `pytest.fixture` for shared setup, `parametrize` for multiple cases
-- Mock external services with `unittest.mock` or `pytest-mock`
-
----
-
-## AI Guidelines
-
-**Do:** Type hints, docstrings, unit tests, follow patterns, reference WRITING.md for docs
-**Don't:** Remove tests without reason, change style mid-project, add unjustified deps, leave commented code, hardcode secrets
-
----
-
-## Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `ANTHROPIC_API_KEY` | Anthropic API key | No |
-| `OPENAI_API_KEY` | OpenAI API key | No |
-
----
-
-## Notes
-
-- Template repo — update name/description when creating new project
-- WRITING.md enforces Diátaxis, Golden Circle, Rule of Three for docs
-- No Cursor rules (.cursor/rules/) or Copilot instructions (.github/copilot-instructions.md)
+1. **Always update this file** when creating a new project from this template - it's how OpenCode learns about your specific project.
+2. **Dependency changes**: Whenever you modify `requirements.txt`, run the pip install + freeze command to keep it synchronized.
+3. **File locations matter**:
+   - Source code → `src/` directory
+   - Test files → `tests/` directory (must follow `test_<module>.py` naming)
+   - Configuration → `.devcontainer/` (generally avoid modifying unless you understand DevContainers)
+4. **No pre-existing logic**: This is a clean starting point - there is no business logic to preserve or reverse-engineer.
+5. **OpenCode reads this file automatically** - keep it accurate and up-to-date for optimal AI assistance. Outdated or incorrect context will lead to poor AI performance.
