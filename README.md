@@ -166,6 +166,7 @@ py-opencode-scaffold/
 ├── .gitattributes           # Git file handling rules
 ├── .gitignore               # Ignored files and folders
 ├── AGENTS.md                # AI context template
+├── DESIGN.md                # Visual design system template
 ├── LICENSE                  # MPL 2.0
 ├── README.md                # This file
 ├── requirements.txt         # Python dependencies
@@ -176,7 +177,7 @@ py-opencode-scaffold/
 
 ## AI Context Files
 
-This template includes two files that help OpenCode understand your project:
+This template includes three files that help OpenCode understand your project:
 
 ### AGENTS.md
 
@@ -206,6 +207,17 @@ This template includes two files that help OpenCode understand your project:
 - Golden Circle structure (Why → How → What)
 - Rule of Three for content organization
 - KISS principle for clarity
+
+### DESIGN.md
+
+**Purpose**: Defines the visual design system so AI agents generate consistent UI.
+
+**When to use**:
+- When you have established brand colors, typography, or component patterns
+- When you want AI-generated UI to match your project's visual identity
+- When using AI agents for frontend or design work
+
+**How to use**: Edit [DESIGN.md](DESIGN.md) to define colors, typography, spacing, components, shapes, and design rules following the [Google Stitch format](https://stitch.withgoogle.com/docs/design-md/specification/). OpenCode's `design-md` skill can scaffold this file for you.
 
 ---
 

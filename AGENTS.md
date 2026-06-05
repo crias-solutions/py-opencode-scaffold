@@ -19,6 +19,7 @@
 - `specify-cli` (via `uv tool install specify-cli`)
 - `get-shit-done-cc` (global npm)
 - `find-skills` skill (installed via `npx skills add` in `postCreateCommand`)
+- `design-md` skill (`.opencode/skills/design-md/SKILL.md`) — scaffold a DESIGN.md using the Google Stitch format
 
 ## Essential commands
 
