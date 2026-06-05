@@ -49,6 +49,7 @@ The project uses GitHub Codespaces with a DevContainer configuration. This provi
 - GSD (Get Shit Done) for structured AI workflows
 - spec-kit for specification-first development
 - VS Code extensions pre-configured
+- Skill Finder (find-skills) for discovering and installing community skills
 
 ---
 
@@ -58,9 +59,10 @@ The project uses GitHub Codespaces with a DevContainer configuration. This provi
 
 1. **One-click Codespace setup** – Launch a fully configured environment from the template
 2. **Pre-configured AI assistance** – OpenCode ready to use with `/help` command
-3. **Structured AI workflows** – GSD provides plan/execute/verify commands out of the box
-4. **Specification-first development** – spec-kit for constitution, specs, plans, and tasks
-5. **Customizable context** – AGENTS.md template for project-specific instructions
+3. **Skill discovery** – `find-skills` for discovering and installing community skills
+4. **Structured AI workflows** – GSD provides plan/execute/verify commands out of the box
+5. **Specification-first development** – spec-kit for constitution, specs, plans, and tasks
+6. **Customizable context** – AGENTS.md template for project-specific instructions
 
 ### What's Included
 
@@ -68,6 +70,7 @@ The project uses GitHub Codespaces with a DevContainer configuration. This provi
 - AGENTS.md template for OpenCode context
 - Python dependencies (requirements.txt)
 - Git configuration (.gitattributes, .gitignore)
+- Skill Finder (find-skills)
 
 ---
 
@@ -203,6 +206,32 @@ This template includes two files that help OpenCode understand your project:
 - Golden Circle structure (Why → How → What)
 - Rule of Three for content organization
 - KISS principle for clarity
+
+---
+
+## Skill Finder
+
+This template includes the [find-skills](https://github.com/vercel-labs/skills) skill for discovering and installing community skills.
+
+### Search for Skills
+
+```bash
+npx skills find <keyword>
+```
+
+### Install a Skill
+
+```bash
+npx skills add <owner/repo> --skill <name>
+```
+
+### List Installed Skills
+
+```bash
+npx skills list
+```
+
+Browse all available skills at [skills.sh](https://skills.sh/).
 
 ---
 

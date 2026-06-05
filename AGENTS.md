@@ -1,78 +1,56 @@
-# AGENTS.md
+# AGENTS.md — py-opencode-scaffold
 
-> Context for OpenCode and AI coding assistants.
+## Template lifecycle
 
-## Critical Facts (Would Likely Miss Without Help)
+- **MUST** update project name and description in this file when creating a new project from this template.
+- Resolve the black/ruff formatter conflict: Ruff is the VS Code default formatter (`charliermarsh.ruff`); `black` in `requirements.txt` is redundant and should be removed.
+- Add a `pyproject.toml` if your project needs one — the template ships without package configuration by design.
 
-- **Template repository**: When creating a new project from this template, you MUST update the project name and description in this file.
-- **No application code**: The `src/` directory is intentionally empty - this is where you add your code.
-- **Environment variables**: OpenCode requires API keys set via GitHub Codespaces secrets (`ANTHROPIC_API_KEY` or `OPENAI_API_KEY`), not in the repository.
-- **Test naming**: Tests must follow `test_<module>.py` naming convention for pytest discovery.
+## Starting point
 
-## Essential Commands
+- `src/` and `tests/` directories do not exist — create them as you add code.
+- No `pyproject.toml`, `setup.py`, or `setup.cfg` — configure your tooling (mypy, pytest, ruff) as you go.
+- OpenCode reads this file automatically on every session; keep it current.
 
-### Dependency Management
+## Pre-installed tooling
+
+- `opencode` CLI (global npm, installed via `postCreateCommand`)
+- `uv` (installed via `astral.sh/uv/install.sh`)
+- `specify-cli` (via `uv tool install specify-cli`)
+- `get-shit-done-cc` (global npm)
+- `find-skills` skill (installed via `npx skills add` in `postCreateCommand`)
+
+## Essential commands
+
+### Dependencies
+
 ```bash
-# After editing requirements.txt
 pip install <package> && pip freeze > requirements.txt
 ```
 
 ### Testing
+
 ```bash
-# All tests
-pytest
-
-# Single test function
-pytest tests/test_file.py::test_name
-
-# With coverage
-pytest --cov=src --cov-report=term-missing
+pytest                                            # all tests
+pytest tests/test_file.py::function_name           # single test
+pytest --cov=src --cov-report=term-missing         # with coverage
 ```
 
-### Code Quality
+### Code quality
+
 ```bash
-# Lint
-ruff check .
-
-# Format
-ruff format .
-
-# Type check
-mypy src/
+ruff check .      # lint
+ruff format .     # format
+mypy src/         # type check
 ```
 
-### AI Workflows (pre-installed)
+### AI workflows (pre-installed)
+
 ```bash
-# Specification-first development (spec-kit)
-/speckit.specify    # Start feature specification
-/speckit.plan       # Create implementation plan
-/speckit.tasks      # Break plan into tasks
-/speckit.implement  # Implement tasks
-
-# Multi-step execution (GSD)
-/gsd:new-project    # Start GSD workflow
-/gsd:execute-phase N # Execute phase N
+/speckit.specify        # Start feature specification
+/speckit.plan           # Create implementation plan
+/speckit.tasks          # Break plan into tasks
+/speckit.implement      # Implement tasks
+/gsd:new-project        # Start GSD workflow
+/gsd:execute-phase N    # Execute phase N
 ```
-
-## Project Structure
-```
-py-opencode-scaffold/
-├── src/                  # ← Add your application code here
-├── tests/                # ← Test files (must be test_<module>.py)
-├── .devcontainer/        # ← Codespaces configuration (generally don't modify)
-├── AGENTS.md             # ← THIS FILE (update for your project context)
-├── README.md
-├── requirements.txt      # ← Python dependencies (keep updated)
-└── WRITING.md            # ← Documentation standards
-```
-
-## Agent-Specific Guidelines
-
-1. **Always update this file** when creating a new project from this template - it's how OpenCode learns about your specific project.
-2. **Dependency changes**: Whenever you modify `requirements.txt`, run the pip install + freeze command to keep it synchronized.
-3. **File locations matter**:
-   - Source code → `src/` directory
-   - Test files → `tests/` directory (must follow `test_<module>.py` naming)
-   - Configuration → `.devcontainer/` (generally avoid modifying unless you understand DevContainers)
-4. **No pre-existing logic**: This is a clean starting point - there is no business logic to preserve or reverse-engineer.
-5. **OpenCode reads this file automatically** - keep it accurate and up-to-date for optimal AI assistance. Outdated or incorrect context will lead to poor AI performance.
