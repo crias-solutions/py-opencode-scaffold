@@ -67,10 +67,10 @@ The project uses GitHub Codespaces with a DevContainer configuration. This provi
 ### What's Included
 
 - DevContainer configuration
-- AGENTS.md template for OpenCode context
+- AGENTS.md template for OpenCode context with prompting and workflow best practices
 - Python dependencies (requirements.txt)
 - Git configuration (.gitattributes, .gitignore)
-- Skill Finder (find-skills)
+- Skill Finder (find-skills) and two pre-installed skills (`design-md`, `review-code`)
 
 ---
 
@@ -162,26 +162,32 @@ opencode
 ```
 py-opencode-scaffold/
 ├── .devcontainer/
-│   └── devcontainer.json    # Codespaces configuration
-├── .gitattributes           # Git file handling rules
-├── .gitignore               # Ignored files and folders
-├── AGENTS.md                # AI context template
-├── DESIGN.md                # Visual design system template
-├── LICENSE                  # MPL 2.0
-├── README.md                # This file
-├── requirements.txt         # Python dependencies
-└── WRITING.md               # Documentation standards
+│   └── devcontainer.json        # Codespaces configuration
+├── .opencode/
+│   └── skills/
+│       ├── design-md/
+│       │   └── SKILL.md         # DESIGN.md scaffolding skill
+│       └── review-code/
+│           └── SKILL.md         # Code review skill
+├── .gitattributes               # Git file handling rules
+├── .gitignore                   # Ignored files and folders
+├── AGENTS.md                    # AI context template
+├── DESIGN.md                    # Visual design system template
+├── LICENSE                      # MPL 2.0
+├── README.md                    # This file
+├── requirements.txt             # Python dependencies
+└── WRITING.md                   # Documentation standards
 ```
 
 ---
 
 ## AI Context Files
 
-This template includes three files that help OpenCode understand your project:
+This template includes files that help OpenCode understand your project:
 
 ### AGENTS.md
 
-**Purpose**: Provides context about your project to OpenCode.
+**Purpose**: Provides context about your project to OpenCode. Includes best practices for context management, verification workflows, and prompting.
 
 **When to use**:
 - When you create a new project from this template
@@ -221,26 +227,22 @@ This template includes three files that help OpenCode understand your project:
 
 ---
 
-## Skill Finder
+## Skills
 
-This template includes the [find-skills](https://github.com/vercel-labs/skills) skill for discovering and installing community skills.
+This template ships with two pre-installed skills in `.opencode/skills/`:
 
-### Search for Skills
+| Skill | File | Purpose |
+|---|---|---|
+| `design-md` | `.opencode/skills/design-md/SKILL.md` | Scaffold a DESIGN.md using the Google Stitch format |
+| `review-code` | `.opencode/skills/review-code/SKILL.md` | Review the current diff for bugs and edge cases |
+
+### Discover More Skills
+
+Install the [find-skills](https://github.com/vercel-labs/skills) tool to search the community skill registry:
 
 ```bash
+npx skills add https://github.com/vercel-labs/skills --skill find-skills
 npx skills find <keyword>
-```
-
-### Install a Skill
-
-```bash
-npx skills add <owner/repo> --skill <name>
-```
-
-### List Installed Skills
-
-```bash
-npx skills list
 ```
 
 Browse all available skills at [skills.sh](https://skills.sh/).
